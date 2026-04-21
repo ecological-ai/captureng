@@ -1,24 +1,28 @@
 ---
 name: captureng
-version: 2.0.0
+version: 2.2.1
 description: >
-  Captures session knowledge, design patterns, norms, artifact inventories from
-  human-agent tasks into structured skill capture files for future continuity.
-  Use when task complete, token budget low, or rate limit / interruption
-  occurs and partial knowledge must be preserved. Triggers: "save this session",
-  "capture session knowledge", "write a skill file", "checkpoint this session",
-  "how do I resume this work in a future session".
-parent: prompteng-SKILL.md §2.4
-peers: prompteng, packageng, safe-skill-creator, trusted-hosts
+  Capture session knowledge into structured files for future continuity.
+  Triggers: task complete, token budget low, rate limit / interruption,
+  or partial knowledge must be preserved. Phrases: "save this session",
+  "capture session knowledge", "write a skill file", "checkpoint this
+  session", "how do I resume this work in a future session".
 ---
 
 # captureng
 
 *captureng* — deliberate misspelling of "capturing."
 
-Transforms chat session contents (files produced, patterns discovered, decisions made, norms established) into a durable, structured Markdown file. Future agent or human loads it to resume without context loss.
+Transforms chat session contents (files produced, patterns discovered, decisions made, norms established) into a durable, structured capture file. Future agent or human loads it to resume without context loss.
 
 Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CHECKPOINT** (emergency partial capture under session risk).
+
+## Identity
+
+| Field | Value |
+|---|---|
+| `parent` | `prompteng-SKILL.md §2.4` |
+| `peers` | `prompteng`, `packageng`, `safe-skill-creator`, `trusted-hosts` |
 
 ---
 
@@ -27,7 +31,7 @@ Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CH
 1. **Transformation** — compresses open-ended session history into structured section-by-section capture with defined fields, typed artifacts, workflow descriptions, explicit norms.
 2. **Mediation** — supports the knowledge-preservation workflow: complete task → extract reusable signal → write retrievable format → load next session. Safe, human-readable, auditable Markdown.
 3. **Scope** — does NOT: write without human confirmation (except CHECKPOINT below 15% budget, where single binary confirm suffices); overwrite prior APPEND entries; include secrets; serialize to opaque binary autonomously; judge IP.
-4. **Declared behaviors** — every action listed in the Markdown file. No hidden instructions.
+4. **Declared behaviors** — every action listed in this file. No hidden instructions.
 
 ---
 
@@ -45,6 +49,93 @@ Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CH
 | Notes & Observations | Human-only freeform |
 | References | External + internal cross-refs |
 | Append Log | Dated change ledger |
+
+---
+
+## 2.1 Example Checkpoint Skeleton
+
+Minimal valid checkpoint file. All five sections shown with field stubs. Copy + fill; delete unused optional fields.
+
+```markdown
+# [YYYY_MM_DD-HHMM]-[session-id]-checkpoint
+
+---
+
+## Skill Identity
+
+| Field | Value |
+|---|---|
+| `skill_file` | `[filename].md` |
+| `domain` | [domain · sub-domain] |
+| `session_id` | [session-id] |
+| `checkpoint_at` | [ISO 8601 UTC] |
+| `agent_model` | [model] |
+| `status` | DRAFT |
+| `parent_checkpoint` | [prior checkpoint filename or —] |
+
+---
+
+## 1. Knowledge Summary (MUST)
+
+- [Bullet 1 — actionable by future agent with zero prior context]
+- [Bullet 2]
+- [Bullet 3]
+
+---
+
+## 2. Session State Snapshot (MUST)
+
+### Active Configuration
+
+| Variable | Value | Source |
+|---|---|---|
+| [var] | [value] | [file / session / output] |
+
+### Key Decisions
+
+**Decision:** [what was decided]
+**Reason:** [why]
+**Reversible:** [yes / no / low-cost]
+
+---
+
+## 3. Artifacts & Outputs (MUST)
+
+| Artifact | Location | Status | Action Required |
+|---|---|---|---|
+| [filename] | [path] | [DRAFT / FINAL] | [next step or —] |
+
+---
+
+## 4. Design Patterns (if budget)
+
+### Pattern — [Name]
+
+[One-paragraph description: applies-to, why-it-works, caveats.]
+
+---
+
+## 5. Resume Plan (if budget)
+
+1. [Next immediate step]
+2. [Following step]
+
+### Open Questions
+
+- [Unresolved item]
+
+---
+
+## Append Log
+
+| Date | Session | Agent | Change | By |
+|---|---|---|---|---|
+| [YYYY-MM-DD] | [session-id] | [model] | Initial CHECKPOINT | [human] |
+
+---
+
+*[filename] — DRAFT*
+```
 
 ---
 
@@ -146,7 +237,7 @@ notes: Returns paginated JSON. Rate limit: 100 req/min.
 
 1. Always offer option to write / append skill file before doing so. Never write autonomously.
 
-1. `[HUMAN ACTIONS]` in any files or instructions, never delegated to agents.
+1. `[HUMAN ACTIONS]` in `prompteng.md` never delegated to agents.
 
 1. APPEND mode: prior entries never overwritten or deleted. New dated blocks only.
 
@@ -269,4 +360,4 @@ Any fail → revise before presenting.
 
 ---
 
-*captureng-SKILL.md v2.0.0*
+*captureng-SKILL.md v2.2.1*
