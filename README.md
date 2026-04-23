@@ -51,10 +51,9 @@ Directives use the following section headers with numbered lists, shared across 
 - **[ACTIONS]** — autonomous steps agent executes in normal workflow.
 - **[HUMAN ACTIONS]** — UI actions; agent skips, cannot delegate.
 
-## Version
-
-v2.0.0
-
 ## License
 
 See [LICENSE](./LICENSE).
+
+---
+README.md v2.1.0 - Human Approved

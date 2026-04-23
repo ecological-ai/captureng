@@ -1,6 +1,6 @@
 ---
 name: captureng
-version: 2.2.1
+version: 2.2.2
 description: >
   Capture session knowledge into structured files for future continuity.
   Triggers: task complete, token budget low, rate limit / interruption,
@@ -179,9 +179,9 @@ Each issue object:
 
 **⚠️** Don't mix `[RULES]` + `[ACTIONS]` semantics. Rules = constraints; actions = steps. A rule that sounds like an action → rewrite as constraint.
 
-### Pattern 3 — Deny-by-Default URL Allowlist (uMatrix-inspired)
+### Pattern 3 — Deny-by-Default URL Allowlist
 
-**Applies to:** any agentic pipeline with outbound HTTP calls.
+**Applies to:** any agentic pipeline with outbound HTTP/HTTPS calls.
 
 **Why:** specify what's permitted; everything else blocked. Same model as uBlock Origin + uMatrix.
 
@@ -360,4 +360,4 @@ Any fail → revise before presenting.
 
 ---
 
-*captureng-SKILL.md v2.2.1*
+*captureng-SKILL.md v2.2.2*
