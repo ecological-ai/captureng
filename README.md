@@ -10,7 +10,8 @@ Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CH
 |---|---|
 | `SKILL.md` | Router — load order |
 | `captureng-SKILL.md` | Content — capture template, modes, anti-recursive guard |
-| `captureng.skill` | Packaged archive upload to SKILL directory |
+| `captureng.skill` | Packaged archive for upload to SKILL directory |
+| `.github/workflows/build-skill.yml` | CI workflow — auto-builds and publishes `captureng.skill` on push |
 | `README.md` | Explanatory instructions and overview for this software package |
 
 ## Install
@@ -53,7 +54,7 @@ Directives use the following section headers with numbered lists, shared across 
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](./LICENSE). (C) Copyright 2026 - Sameer Khan - Various and Several Rights Reserved.
 
 ---
-README.md v2.1.0 - Human Approved
+README.md v2.2.0 - Human Approved
