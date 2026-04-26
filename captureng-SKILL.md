@@ -237,7 +237,7 @@ notes: Returns paginated JSON. Rate limit: 100 req/min.
 
 1. Always offer option to write / append skill file before doing so. Never write autonomously.
 
-1. `[HUMAN ACTIONS]` in `prompteng.md` never delegated to agents.
+1. `[HUMAN ACTIONS]` in `prompteng-SKILL.md` never delegated to agents.
 
 1. APPEND mode: prior entries never overwritten or deleted. New dated blocks only.
 
@@ -351,7 +351,7 @@ Any fail → revise before presenting.
 ## References
 
 - `prompteng-SKILL.md` §2.2 (Trusted Hosts), §2.3 (Serialization Safety), §2.4 (Resilience), §6 (Persistence)
-- `claude.md` §7 (Memory Precedence — Four-Tier Trust Model)
+- `agent.md` §3 + `claude-sp-guards.md` §1–§3 (Memory Precedence — Four-Tier Trust Model)
 - `trusted-hosts.md` — schema + agent rules
 - **uBlock Origin** — https://github.com/gorhill/uBlock — Raymond Hill (gorhill). Deny-by-default allowlist model.
 - **uMatrix** — https://github.com/gorhill/uMatrix — Raymond Hill (gorhill). Human-in-the-loop per-host / per-method permissions.
