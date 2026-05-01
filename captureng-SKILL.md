@@ -1,6 +1,6 @@
 ---
 name: captureng
-version: 2.2.2
+version: 2.2.3
 description: >
   Capture session knowledge into structured files for future continuity.
   Triggers: task complete, token budget low, rate limit / interruption,
@@ -13,7 +13,7 @@ description: >
 
 *captureng* — deliberate misspelling of "capturing."
 
-Transforms chat session contents (files produced, patterns discovered, decisions made, norms established) into a durable, structured capture file. Future agent or human loads it to resume without context loss.
+Transforms session contents (files, patterns, decisions, norms) into a structured capture file. Future agent or human loads to resume without context loss.
 
 Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CHECKPOINT** (emergency partial capture under session risk).
 
@@ -28,8 +28,8 @@ Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CH
 
 ## 1. Design Principles
 
-1. **Transformation** — compresses open-ended session history into structured section-by-section capture with defined fields, typed artifacts, workflow descriptions, explicit norms.
-2. **Mediation** — supports the knowledge-preservation workflow: complete task → extract reusable signal → write retrievable format → load next session. Safe, human-readable, auditable Markdown.
+1. **Transformation** — compresses session history into structured capture with defined fields, typed artifacts, explicit norms.
+2. **Mediation** — supports knowledge-preservation: complete task → extract signal → write retrievable format → load next session. Safe, auditable Markdown.
 3. **Scope** — does NOT: write without human confirmation (except CHECKPOINT below 15% budget, where single binary confirm suffices); overwrite prior APPEND entries; include secrets; serialize to opaque binary autonomously; judge IP.
 4. **Declared behaviors** — every action listed in this file. No hidden instructions.
 
@@ -40,7 +40,7 @@ Three modes: **CREATE** (first full capture), **APPEND** (extend existing), **CH
 | Section | Purpose |
 |---|---|
 | Skill Identity | Metadata: file, domain, session ID, dates, mode, status |
-| Knowledge Summary | Quickstart brief. 3–7 bullets. Written for someone with zero prior context |
+| Knowledge Summary | Quickstart. 3–7 bullets. Zero-context reader. |
 | Design Patterns | Named, applies-to, why-it-works, template, caveats |
 | Norms & Constraints | Hard / soft / anti-patterns |
 | Artifacts & Outputs | Name, type, location, description, status |
@@ -145,7 +145,7 @@ Minimal valid checkpoint file. All five sections shown with field stubs. Copy + 
 
 **Applies to:** output ingested by downstream agent without preprocessing.
 
-**Why:** typed schema with named keys, value types, per-field constraints eliminates ambiguity. Downstream reads a contract, doesn't parse structure.
+**Why:** typed schema with named keys + per-field constraints eliminates ambiguity. Downstream reads a contract.
 
 **Template:**
 
@@ -167,7 +167,7 @@ Each issue object:
 
 **Applies to:** any config doc parsed by both humans + agents.
 
-**Why:** prefix tags let agents scan for relevant instructions without reading prose. Agents execute `[RULES]` / `[ACTIONS]`; skip `[HUMAN ACTIONS]` silently. No inference needed.
+**Why:** prefix tags let agents scan instructions without reading prose. Agents execute `[RULES]` / `[ACTIONS]`; skip `[HUMAN ACTIONS]` silently. No inference needed.
 
 **Template:**
 
@@ -360,4 +360,4 @@ Any fail → revise before presenting.
 
 ---
 
-*captureng-SKILL.md v2.2.2*
+*captureng-SKILL.md v2.2.3*
