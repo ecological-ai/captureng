@@ -35,6 +35,8 @@ Load on demand when task requires:
 - **[prompteng](https://github.com/ecological-codes/prompteng)** — main set of rules + framework for doing better prompt engineering
 - **[packageng](https://github.com/ecological-codes/packageng)** — `.skill` file validation + packaging
 - **[safe-skill-creator](https://github.com/ecological-codes/safe-skill-creator)** — skill design + iteration
+- **[scribeng](https://github.com/ecological-codes/scribeng)** — agent scribe; Entire-compatible session checkpoint + sessionlog
+- **[export-memories](https://github.com/ecological-codes/export-memories)** — cross-session transcript synthesis
 
 ## Companion Files
 
